@@ -3,7 +3,6 @@ package com.example.simpleecomerce.controller;
 
 import com.example.simpleecomerce.controller.dto.CatDto;
 import com.example.simpleecomerce.entity.Category;
-import com.example.simpleecomerce.entity.Product;
 import com.example.simpleecomerce.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

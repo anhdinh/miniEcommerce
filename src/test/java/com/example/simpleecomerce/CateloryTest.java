@@ -2,18 +2,12 @@ package com.example.simpleecomerce;
 
 import com.example.simpleecomerce.entity.Category;
 import com.example.simpleecomerce.repositories.CategoryRepository;
-import com.example.simpleecomerce.service.CategoryService;
 import jakarta.transaction.Transactional;
-import org.aspectj.apache.bcel.Repository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.FilterType;
 
-import java.security.Provider;
 import java.util.Optional;
 
 
@@ -23,10 +17,6 @@ class CategoryTest {
 
     @Autowired
     private CategoryRepository categoryRepository;
-
-    @Autowired
-    private CategoryService categoryService;
-
     @Test
     void contextLoads() {
     }

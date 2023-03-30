@@ -1,11 +1,10 @@
 package com.example.simpleecomerce.controller;
 
-import com.example.simpleecomerce.controller.dto.CustomPage;
+import com.example.simpleecomerce.controller.dto.CustomPageDto;
 import com.example.simpleecomerce.controller.dto.ProductDto;
 import com.example.simpleecomerce.service.ProductService;
 import com.example.simpleecomerce.utilites.PageSetting;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -26,15 +25,15 @@ public class ProductController {
     }
 
     @GetMapping("/all/{page}")
-    public CustomPage<ProductDto> getAllProduct(@PathVariable Optional<Integer> page) {
+    public CustomPageDto<ProductDto> getAllProduct(@PathVariable Optional<Integer> page) {
         Pageable pageable = PageRequest.of(page.orElse(0), PageSetting.PAGE_SIZE);
-        return new CustomPage<>(productService.getAllProduct(pageable));
+        return new CustomPageDto<>(productService.getAllProduct(pageable));
     }
 
     @GetMapping("/all")
-    public CustomPage<ProductDto> getAllProduct() {
+    public CustomPageDto<ProductDto> getAllProduct() {
         Pageable pageable = PageRequest.of(0, PageSetting.PAGE_SIZE);
-        return new CustomPage<>(productService.getAllProduct(pageable));
+        return new CustomPageDto<>(productService.getAllProduct(pageable));
     }
 
     @PostMapping("/add")

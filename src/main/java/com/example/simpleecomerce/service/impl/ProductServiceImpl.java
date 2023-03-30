@@ -6,7 +6,6 @@ import com.example.simpleecomerce.repositories.ProductRepository;
 import com.example.simpleecomerce.service.ProductService;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
