@@ -3,12 +3,14 @@ package com.example.simpleecomerce.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Set;
 
 @Entity
 @Data
 @Table(name = "category")
+@EqualsAndHashCode
 public class Category {
 
     private Long id;
@@ -16,7 +18,7 @@ public class Category {
     private String categoryName;
     private String description;
     private String image;
-    private String active;
+    private boolean active;
 
 
 
@@ -33,12 +35,9 @@ public class Category {
         return id;
     }
 
-    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category")
     public Set<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-    }
 }

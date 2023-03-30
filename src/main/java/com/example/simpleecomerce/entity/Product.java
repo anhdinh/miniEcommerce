@@ -3,14 +3,24 @@ package com.example.simpleecomerce.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.math.BigDecimal;
 
 @Entity
 @Data
+@EqualsAndHashCode
 public class Product {
     private Long id;
     @Column(name = "product_name")
     private String productName;
     private String sku;
+    @Column(name = "product_description")
+    private String productDescription;
+    private String image;
+    private BigDecimal price;
+    private String note;
+    private Boolean active = true;
 
     public void setId(Long id) {
         this.id = id;

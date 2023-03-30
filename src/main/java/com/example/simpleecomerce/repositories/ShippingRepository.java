@@ -1,9 +1,9 @@
 package com.example.simpleecomerce.repositories;
 
-import com.example.simpleecomerce.entity.Category;
+import com.example.simpleecomerce.entity.Shipping;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SupplierRepository  extends CrudRepository<Category, Long> {
+public interface ShippingRepository extends CrudRepository<Shipping,Long> {
 }

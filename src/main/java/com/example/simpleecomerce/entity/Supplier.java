@@ -27,7 +27,7 @@ public class Supplier {
         return id;
     }
 
-    @OneToMany(mappedBy = "supplier",targetEntity = Product.class,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "supplier",targetEntity = Product.class)
     public Set<Product> getProducts() {
         return products;
     }
