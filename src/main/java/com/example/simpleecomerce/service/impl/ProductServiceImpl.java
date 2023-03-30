@@ -11,8 +11,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -28,10 +28,10 @@ public class ProductServiceImpl implements ProductService {
 
     public Page<ProductDto> getAllProduct(Pageable pageable){
        Page<Product> allProducts =  productRepository.getAllByIdIsNotNull(pageable);
-       List<ProductDto> listProductDto =  new ArrayList<>();
-       allProducts.get().toList().forEach(product -> {
-           listProductDto.add(mapper.map(product,ProductDto.class));
-       });
+       List<ProductDto> listProductDto =  allProducts
+               .stream()
+               .map(product -> mapper.map(product,ProductDto.class))
+               .collect(Collectors.toList());
        Page<ProductDto> products =  new PageImpl<>(listProductDto,pageable,allProducts.getTotalElements());
        return products;
     }
